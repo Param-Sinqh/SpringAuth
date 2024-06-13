@@ -1,4 +1,4 @@
-package net.codejava.product;
+package com.param.jwt_example.controller;
 
 import java.net.URI;
 import java.util.List;
@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.param.jwt_example.model.Product;
+import com.param.jwt_example.repository.ProductRepository;
+
 @RestController
 @RequestMapping("/products")
-public class ProductApi {
+public class ProductContoller {
 
 	@Autowired private ProductRepository repo;
 	

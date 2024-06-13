@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.codejava</groupId>
-	<artifactId>SpringJwtAuthExample</artifactId>
+	<artifactId>SpringJwtAuthTokenization</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>SpringJwtAuthExample</name>
+	<name>SpringJwtAuthTokenization</name>
 	<description>Spring Security JWT Authentication Example Project</description>
 	<properties>
 		<java.version>17</java.version>

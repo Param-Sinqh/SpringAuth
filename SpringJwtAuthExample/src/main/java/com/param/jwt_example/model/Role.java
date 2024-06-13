@@ -1,4 +1,4 @@
-package net.codejava.product;
+package com.param.jwt_example.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -6,28 +6,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.Length;
 
 @Entity
-@Table(name = "products")
-public class Product {
+@Table(name = "roles")
+public class Role {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;	
+	private Integer id;
 	
-	@Column(nullable = false, length = 128)
-	@NotNull @Length(min = 5, max = 128)
+	@Column(nullable = false, length = 50, unique = true)
 	private String name;
 	
-	private float price;
-
-	public Product() {
+	private Role() {} // resetting default constructor to empty private constructor
+	
+	public Role (String name) {
+		this.name = name;
 	}
 	
-	public Product(String name, float price) {
-		this.name = name;
-		this.price = price;
+	public Role(Integer id) {
+		super();
+		this.id = id;
 	}
 
 	public Integer getId() {
@@ -45,13 +42,11 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	public float getPrice() {
-		return price;
+	
+	@Override
+	public String toString() {
+		return this.name;
 	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
+	
+	 
 }

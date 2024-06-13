@@ -1,13 +1,13 @@
-package net.codejava;
+package com.param.jwt_example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringJwtAuthExampleApplication {
+public class SpringJwtAuthTokenizationApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringJwtAuthExampleApplication.class, args);
+		SpringApplication.run(SpringJwtAuthTokenizationApplication.class, args);
 	}
 
 }

@@ -1,4 +1,4 @@
-package net.codejava.jwt;
+package com.param.jwt_example.jwt;
 
 import java.util.Date;
 import java.util.Set;
@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.param.jwt_example.model.Role;
+import com.param.jwt_example.model.User;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -15,8 +18,6 @@ import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.SignatureException;
 import io.jsonwebtoken.UnsupportedJwtException;
-import net.codejava.user.Role;
-import net.codejava.user.User;
 
 @Component
 public class JwtTokenUtil {

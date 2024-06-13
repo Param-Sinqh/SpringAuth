@@ -1,4 +1,4 @@
-package net.codejava;
+package com.param.jwt_example;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,8 +16,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import net.codejava.jwt.JwtTokenFilter;
-import net.codejava.user.UserRepository;
+import com.param.jwt_example.jwt.JwtTokenFilter;
+import com.param.jwt_example.repository.UserRepository;
 
 @EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)

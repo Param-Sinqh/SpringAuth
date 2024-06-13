@@ -1,4 +1,4 @@
-package net.codejava.jwt;
+package com.param.jwt_example.jwt;
 
 import java.io.IOException;
 
@@ -16,9 +16,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.param.jwt_example.model.Role;
+import com.param.jwt_example.model.User;
+
 import io.jsonwebtoken.Claims;
-import net.codejava.user.Role;
-import net.codejava.user.User;
 
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {
