@@ -23,7 +23,6 @@ public class ProductContoller {
 	private ProductRepository repo;
 
 	@PostMapping
-	// @PreAuthorize("hasRole('ROLE_EDITOR')")
 	@RolesAllowed("ROLE_EDITOR")
 	public Product create(@RequestBody @Valid Product product) {
 		Product savedProduct = repo.save(product);
@@ -32,7 +31,6 @@ public class ProductContoller {
 	}
 
 	@GetMapping
-	// @PreAuthorize("hasRole('ROLE_CUSTOMER') or hasRole('ROLE_EDITOR')")
 	@RolesAllowed({ "ROLE_EDITOR", "ROLE_CUSTOMER" })
 	public List<Product> list() {
 		return repo.findAll();
