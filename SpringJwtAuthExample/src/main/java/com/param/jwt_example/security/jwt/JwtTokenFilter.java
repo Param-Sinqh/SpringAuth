@@ -1,4 +1,4 @@
-package com.param.jwt_example.jwt;
+package com.param.jwt_example.security.jwt;
 
 import java.io.IOException;
 

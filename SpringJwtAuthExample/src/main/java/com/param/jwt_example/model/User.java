@@ -3,8 +3,8 @@ package com.param.jwt_example.model;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,73 +17,39 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 
-import org.hibernate.annotations.GeneratorType;
-import org.hibernate.validator.constraints.Length;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.param.jwt_example.model.Role;
-
 @Entity
 @Table(name = "users")
 public class User implements UserDetails {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
-	
-	@Column(nullable = false, length = 50, unique = true)
-	@Email @Length(min = 5, max = 64)
-	private String email;
-	
-	@Column(nullable = false, length = 64)
-	@Length(min = 5, max = 64)
-	private String password;
-	
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public Integer id;
+
+	@Column(nullable = false, unique = true)
+	@Email
+	public String email;
+
+	@Column(nullable = false, unique = true)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public String password;
+
 	@ManyToMany
-	@JoinTable(
-			name = "user_role",
-			joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "role_id")
-	)
-	
-	private Set<Role> roles = new HashSet<>();
-	
-	public Set<Role> getRoles(){
-		return roles;
+	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	public Set<Role> roles = new HashSet<Role>();
+
+	public User() {
 	}
-	
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
-	}
-	
-	public void addRole(Role role) {
-		this.roles.add(role);
-	}
-	
-	public User() {}
-	
+
 	public User(String email, String password) {
 		this.email = email;
 		this.password = password;
 	}
-	
-	public Integer getId() {
-		return id;
-	}
-	
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public String getEmail() {
-		return email;
-	}
-	
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
-	
+
+	// **********************
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
@@ -93,9 +59,9 @@ public class User implements UserDetails {
 		return authorities;
 	}
 
-	@Override // changes
+	@Override
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
 
 	@Override
@@ -126,6 +92,37 @@ public class User implements UserDetails {
 		// TODO Auto-generated method stub
 		return true;
 	}
-	
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	public void addRole(Role role) {
+		roles.add(role);
+	}
 
 }

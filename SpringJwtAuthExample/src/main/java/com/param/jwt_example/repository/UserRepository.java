@@ -9,7 +9,7 @@ import com.param.jwt_example.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-	
+
 	Optional<User> findByEmail(String email);
-	
+
 }

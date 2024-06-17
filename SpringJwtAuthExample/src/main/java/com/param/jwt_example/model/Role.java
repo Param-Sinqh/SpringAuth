@@ -10,18 +10,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "roles")
 public class Role {
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@Column(nullable = false, length = 50, unique = true)
 	private String name;
-	
-	private Role() {} // resetting default constructor to empty private constructor
-	
-	public Role (String name) {
+
+	private Role() {
+	} // resetting default constructor to empty private constructor
+
+	public Role(String name) {
 		this.name = name;
 	}
-	
+
 	public Role(Integer id) {
 		super();
 		this.id = id;
@@ -42,11 +44,10 @@ public class Role {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	@Override
 	public String toString() {
 		return this.name;
 	}
-	
-	 
+
 }
